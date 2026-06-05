@@ -1,94 +1,86 @@
-<!-- contacto.component.html -->
-
+<!-- contact.component.html -->
 <section class="contact-page">
 
     <div class="contact-header">
-        <h1>Contacto</h1>
-        <p>
-            Estamos disponibles para ayudarte. Ponte en contacto con nosotros
-            mediante cualquiera de los siguientes medios.
+        <h1 class="hextech-title">Contacto</h1>
+        <div class="title-separator"></div>
+        <p class="contact-subtitle">
+            ¿Tienes alguna duda con la base de datos o el funcionamiento de la plataforma? Ponte en contacto con el
+            equipo de soporte al invocador.
         </p>
     </div>
 
     <!-- PERSONA DE CONTACTO -->
-    <div class="contact-person-card">
-
-        <h2>Persona de contacto</h2>
+    <div class="contact-person-card hextech-panel">
+        <h2 class="hextech-sub-title">Responsable de Gestión</h2>
 
         <div class="profile">
-
-            <img src="assets/profile.jpg" alt="Perfil" class="profile-image" />
-
-            <div class="profile-info">
-
-                <h3>Juan Pérez</h3>
-
-                <p class="role">
-                    Responsable de atención al cliente
-                </p>
-
-                <div class="profile-details">
-                    <span>📱 +34 611 111 111</span>
-                    <span>✉️ juanperez@miapp.com</span>
-                    <span>📍 Sevilla, España</span>
-                </div>
-
+            <div class="profile-image-wrapper">
+                <img src="assets/profile.jpg" alt="Perfil" class="profile-image" />
+                <div class="profile-border"></div>
             </div>
 
-        </div>
+            <div class="profile-info">
+                <h3 class="profile-name">Juan Pérez</h3>
+                <p class="role">Responsable de Atención al Invocador</p>
 
+                <div class="profile-details">
+                    <span class="detail-item"><span class="icon-gold">📱</span> +34 611 111 111</span>
+                    <span class="detail-item"><span class="icon-gold">✉️</span> juanperez@miapp.com</span>
+                    <span class="detail-item"><span class="icon-gold">📍</span> Sevilla, España</span>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- CONTENIDO -->
+    <!-- CONTENIDO GRID -->
     <div class="contact-container">
 
         <!-- EMPRESA -->
-        <div class="info-card">
-
-            <h2>Información de la empresa</h2>
+        <div class="info-card hextech-panel">
+            <h2 class="hextech-sub-title">Información de la Academia</h2>
 
             <div class="info-item">
-                <span class="icon">🏢</span>
-                <div>
-                    <h3>Empresa</h3>
+                <span class="info-icon">🏢</span>
+                <div class="info-text">
+                    <h3>Gremio / Empresa</h3>
                     <p>Mi Aplicación S.L.</p>
                 </div>
             </div>
 
             <div class="info-item">
-                <span class="icon">📧</span>
-                <div>
-                    <h3>Email</h3>
+                <span class="info-icon">📧</span>
+                <div class="info-text">
+                    <h3>Email de Soporte</h3>
                     <p>info@miapp.com</p>
                 </div>
             </div>
 
             <div class="info-item">
-                <span class="icon">📞</span>
-                <div>
-                    <h3>Teléfono</h3>
+                <span class="info-icon">📞</span>
+                <div class="info-text">
+                    <h3>Centro de Consultas</h3>
                     <p>+34 600 000 000</p>
                 </div>
             </div>
 
             <div class="info-item">
-                <span class="icon">🕒</span>
-                <div>
-                    <h3>Horario</h3>
+                <span class="info-icon">🕒</span>
+                <div class="info-text">
+                    <h3>Horario de Guardia</h3>
                     <p>Lunes a Viernes · 09:00 - 18:00</p>
                 </div>
             </div>
-
         </div>
 
         <!-- MAPA -->
-        <div class="map-card">
-
-            <h2>Ubicación</h2>
-
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen="" loading="lazy">
-            </iframe>
-
+        <div class="map-card hextech-panel">
+            <h2 class="hextech-sub-title">Ubicación en el Mapa</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen="" loading="lazy">
+                </iframe>
+                <div class="map-overlay-border"></div>
+            </div>
         </div>
 
     </div>

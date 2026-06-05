@@ -1,49 +1,50 @@
-<!-- home.component.html -->
-
 <section class="hero">
     <div class="hero-content">
-        <h1>Conoce todo sobre tu juego favorito</h1>
-        <p>
-            Demuestra tus habilidades
+        <h1 class="hextech-title">Conoce todo sobre tus campeones favoritos</h1>
+        <p class="hero-subtitle">
+            Explora la base de datos completa de Runaterra. Descubre las habilidades, roles y características detalladas de cada campeón de la Grieta del Invocador.
         </p>
 
         <div class="hero-buttons">
-            <button class="primary-btn">Comenzar</button>
-            <button class="secondary-btn">Ver más</button>
+            <button class="hextech-btn primary-btn">Explorar Galería</button>
         </div>
     </div>
 
-    <div class="hero-image">
-        <img src="lol.webp" alt="Hero Image" />
+    <div class="hero-image-container">
+        <img src="lol.webp" alt="League of Legends Champion" class="hero-image" />
+        <div class="glow-effect"></div>
     </div>
 </section>
 
 <section class="features">
     <div class="section-title">
-        <h2>Listado de personajes</h2>
-        <p>Todo lo que necesitas saber sobre los personajes del juego.</p>
+        <h2 class="hextech-title">Listado de Campeones</h2>
+        <div class="title-separator"></div>
+        <p>Selecciona un campeón para conocer a fondo sus estadísticas e historia.</p>
     </div>
 
     <div class="features-grid">
-
-        @for(character of characters; track character.id){
-        <div class="feature-card">
-            <div class="feature-icon"><img alt = "fotoPerfil" src="{{character.thumbnailUrl}}"></div>
-            <h3><a href="character/{{character.id}}">{{character.name}}</a></h3>
-            <p>{{character.title}}</p>
+        @for(character of characters; track character.id) {
+        <div class="champion-card">
+            <div class="champion-portrait">
+                <img alt="{{character.name}}" src="{{character.thumbnailUrl}}">
+                <div class="portrait-border"></div>
+            </div>
+            <div class="champion-info">
+                <h3><a href="character/{{character.id}}">{{character.name}}</a></h3>
+                <p class="champion-title">{{character.title}}</p>
+            </div>
         </div>
         }
-
     </div>
 </section>
 
 <section class="cta">
-    <div class="cta-content">
-        <h2>Empieza hoy mismo</h2>
+    <div class="cta-inner">
+        <h2 class="hextech-title">Domina el meta</h2>
         <p>
-            Crea aplicaciones increíbles con una estructura moderna y mantenible.
+            Mantente al día con la información más precisa sobre los personajes y mejora tu conocimiento del juego.
         </p>
-
-        <button class="primary-btn">Crear proyecto</button>
+        <button class="hextech-btn primary-btn">Ver Todos los Personajes</button>
     </div>
 </section>

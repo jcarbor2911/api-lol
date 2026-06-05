@@ -1,1 +1,85 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================
+   IMPORTACIÓN DE FUENTES GLOBALES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+/* =========================================
+   VARIABLES HEXTECH (Paleta de colores)
+   ========================================= */
+:root {
+    --hextech-black: #010A13;
+    --hextech-dark-blue: #091428;
+    --hextech-gold: #C89B3C;
+    --hextech-gold-light: #F0E6D2;
+    --hextech-gold-dark: #785A28;
+    --hextech-teal: #0AC8B9;
+    --hextech-text-gray: #A09B8C;
+}
+
+/* =========================================
+   RESET CSS GLOBAL
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--hextech-black);
+    color: var(--hextech-text-gray);
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita que la página se desplace horizontalmente por error */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================
+   SELECCIÓN DE TEXTO (Al sombrear con el ratón)
+   ========================================= */
+::selection {
+    background-color: rgba(10, 200, 185, 0.3);
+    color: var(--hextech-gold-light);
+}
+
+::-moz-selection {
+    background-color: rgba(10, 200, 185, 0.3);
+    color: var(--hextech-gold-light);
+}
+
+/* =========================================
+   PERSONALIZACIÓN DEL SCROLLBAR (Barra lateral)
+   ========================================= */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--hextech-black);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--hextech-black);
+    border-left: 1px solid var(--hextech-gold-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--hextech-dark-blue);
+    border: 1px solid var(--hextech-gold-dark);
+    border-radius: 2px;
+    transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hextech-gold-dark);
+}
+
+/* =========================================
+   ESTILOS COMPARTIDOS
+   ========================================= */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}

@@ -1,0 +1,201 @@
+/* character-detail.component.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Roboto:wght@300;400;500&display=swap');
+
+:host {
+    display: block;
+    background-color: #010A13;
+    font-family: 'Roboto', sans-serif;
+    color: #A09B8C;
+    min-height: 100vh;
+}
+
+.character-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+/* =========================================
+   HERO BANNER
+   ========================================= */
+.champion-hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center 15%;
+    border-bottom: 2px solid #785A28;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(1, 10, 19, 0.2) 0%, rgba(1, 10, 19, 0.95) 90%, #010A13 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem 5%;
+}
+
+.hero-content {
+    text-align: center;
+    width: 100%;
+}
+
+.champion-role {
+    font-family: 'Cinzel', serif;
+    color: #C8AA6E;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.champion-name {
+    font-family: 'Cinzel', serif;
+    font-size: 5rem;
+    color: #F0E6D2;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.champion-title {
+    font-size: 1.4rem;
+    color: #0AC8B9;
+    /* Brillo Turquesa */
+    font-weight: 300;
+    font-style: italic;
+    margin-top: -5px;
+    letter-spacing: 1px;
+}
+
+/* Adorno dorado inferior */
+.hero-bottom-border {
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, #C89B3C 50%, transparent 100%);
+    box-shadow: 0 0 10px rgba(200, 155, 60, 0.5);
+}
+
+/* =========================================
+   CUERPO Y PANELES
+   ========================================= */
+.champion-body {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    padding: 3rem 5%;
+    margin-top: -2rem;
+    /* Para montar un poco sobre el hero */
+    position: relative;
+    z-index: 10;
+}
+
+.hextech-panel {
+    background: linear-gradient(135deg, rgba(9, 20, 40, 0.95) 0%, rgba(1, 10, 19, 0.95) 100%);
+    border: 1px solid #463714;
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(10px); /* Añadido para compatibilidad con Safari/iOS */
+    backdrop-filter: blur(10px);
+}
+
+.hextech-sub-title {
+    font-family: 'Cinzel', serif;
+    color: #F0E6D2;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.gold-separator {
+    width: 60px;
+    height: 2px;
+    background-color: #C89B3C;
+    margin-bottom: 1.5rem;
+}
+
+/* LORE */
+.lore-text {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #A09B8C;
+    text-align: justify;
+}
+
+/* ESTADÍSTICAS (BARRAS DE PROGRESO) */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.stat-label {
+    font-weight: 500;
+    color: #C8AA6E;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.stat-bar-wrapper {
+    width: 100%;
+    height: 12px;
+    background-color: #010A13;
+    border: 1px solid #302410;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #056961 0%, #0AC8B9 100%);
+    border-right: 1px solid #F0E6D2;
+    transition: width 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+}
+
+.stat-bar-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    background: white;
+    opacity: 0.3;
+    filter: blur(2px);
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .champion-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .champion-name {
+        font-size: 3.5rem;
+    }
+
+    .champion-hero {
+        height: 400px;
+    }
+}

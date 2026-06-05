@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { Header } from './header';
+import { RouterModule } from '@angular/router';
 
 describe('Header', () => {
   let component: Header;
@@ -8,13 +8,16 @@ describe('Header', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Header]
+      imports: [
+        Header,
+        RouterModule.forRoot([]) // Previene errores de enrutado en el entorno de pruebas
+      ]
     })
       .compileComponents();
 
     fixture = TestBed.createComponent(Header);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {
