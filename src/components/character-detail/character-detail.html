@@ -1,39 +1,32 @@
-<!-- character-detail.component.html -->
-<div class="character-wrapper">
+<div class="character-wrapper" *ngIf="character">
 
-    <!-- CABECERA HERO (Imagen principal) -->
-    <header class="champion-hero" [style.backgroundImage]="'url(' + champion.imageUrl + ')'">
+    <header class="champion-hero" [style.backgroundImage]="'url(' + character.imagen + ')'">
         <div class="hero-overlay">
             <div class="hero-content">
-                <span class="champion-role">{{ champion.role }}</span>
-                <h1 class="champion-name">{{ champion.name }}</h1>
-                <h2 class="champion-title">{{ champion.title }}</h2>
+                <span class="champion-role">{{ character.roles }}</span>
+                <h1 class="champion-name">{{ character.name }}</h1>
+                <h2 class="champion-title">{{ character.title }}</h2>
             </div>
         </div>
         <div class="hero-bottom-border"></div>
     </header>
 
-    <!-- CONTENIDO DE DATOS -->
     <main class="champion-body">
 
-        <!-- LORE / HISTORIA -->
         <section class="lore-section hextech-panel">
             <h3 class="hextech-sub-title">Biografía</h3>
             <div class="gold-separator"></div>
-            <p class="lore-text">{{ champion.lore }}</p>
+            <p class="lore-text">{{ character.descripcion }}</p>
         </section>
 
-        <!-- ESTADÍSTICAS -->
-        <aside class="stats-section hextech-panel">
+        <aside class="stats-section hextech-panel" *ngIf="character.estadisticas">
             <h3 class="hextech-sub-title">Estadísticas Base</h3>
             <div class="gold-separator"></div>
-
+            
             <div class="stats-container">
-                <!-- Se iteran las estadísticas desde el TypeScript -->
-                <div class="stat-row" *ngFor="let stat of champion.stats">
+                <div class="stat-row" *ngFor="let stat of character.estadisticas">
                     <span class="stat-label">{{ stat.name }}</span>
                     <div class="stat-bar-wrapper">
-                        <!-- Multiplicamos por 10 para simular porcentaje (1-10 a 10%-100%) -->
                         <div class="stat-bar-fill" [style.width.%]="stat.value * 10">
                             <div class="stat-bar-glow"></div>
                         </div>
