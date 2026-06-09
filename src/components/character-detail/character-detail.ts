@@ -16,17 +16,17 @@ export class CharacterDetail implements OnInit {
   public id: string = '';
   public character?: Character;
 
-  constructor( 
-    private _route: ActivatedRoute, 
-    private characterService: CharacterService 
+  constructor(
+    private _route: ActivatedRoute,
+    private characterService: CharacterService
   ) { }
 
   ngOnInit(): void {
     // 1. Capturamos el ID de la URL
-    this.id = this._route.snapshot.paramMap.get('id')!; 
+    this.id = this._route.snapshot.paramMap.get('id')!;
 
-    // 2. Consultamos al servicio e inyectamos el resultado dinámicamente
-    this.characterService.getCharacterById(this.id).subscribe(result => 
+    // 2. Consultamos al servicio e inyectamos el resultado
+    this.characterService.getCharacterById(this.id).subscribe(result =>
       this.character = result
     );
   }

@@ -11,9 +11,9 @@ export class Character {
 
     get id(): string { return this._id}
     set id(value: string) { this._id = value }
+    get name(): string { return this._name }
     get championId(): number { return this._championId }
     set championId(value: number) { this._championId = value }
-    get name(): string { return this._name }
     set name(value: string) { this._name = value }
     get title(): string { return this._title}
     set title(value: string) { this._title = value }

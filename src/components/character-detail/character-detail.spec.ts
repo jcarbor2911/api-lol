@@ -4,29 +4,30 @@ import { convertToParamMap } from '@angular/router';
 import { of } from 'rxjs';
 import { CharacterDetail } from './character-detail';
 import { CharacterService } from '../../services/character-service';
+import { Character } from '../../model/character';
 
 describe('CharacterDetail', () => {
   let component: CharacterDetail;
   let fixture: ComponentFixture<CharacterDetail>;
 
-  // Simulador del servicio de personajes
+  // Simulador adaptado al constructor real de tu clase Character
   const mockCharacterService = {
-    getCharacterById: (id: string) => of({
-      id: id,
-      name: 'Test',
-      title: 'Título Test',
-      role: 'Mago',
-      imageUrl: '',
-      lore: 'Historia de prueba',
-      stats: []
-    })
+    getCharacterById: (id: string) => of(
+      new Character(
+        id,
+        266,
+        'Aatrox',
+        'el Espada de los Oscuros',
+        ['Luchador', 'Tanque'],
+        'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg'
+      )
+    )
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [CharacterDetail],
       providers: [
-        // Simulamos la ruta activa con un ID cualquiera (ej: '1')
         {
           provide: ActivatedRoute,
           useValue: {
@@ -35,11 +36,10 @@ describe('CharacterDetail', () => {
             }
           }
         },
-        // Inyectamos el simulador del servicio
         { provide: CharacterService, useValue: mockCharacterService }
       ]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CharacterDetail);
     component = fixture.componentInstance;

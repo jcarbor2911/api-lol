@@ -1,9 +1,8 @@
 <div class="character-wrapper" *ngIf="character">
 
-    <header class="champion-hero" [style.backgroundImage]="'url(' + character.imagen + ')'">
+    <header class="champion-hero" [style.backgroundImage]="'url(' + character.thumbnailUrl + ')'">
         <div class="hero-overlay">
             <div class="hero-content">
-                <span class="champion-role">{{ character.roles }}</span>
                 <h1 class="champion-name">{{ character.name }}</h1>
                 <h2 class="champion-title">{{ character.title }}</h2>
             </div>
@@ -14,23 +13,27 @@
     <main class="champion-body">
 
         <section class="lore-section hextech-panel">
-            <h3 class="hextech-sub-title">Biografía</h3>
+            <h3 class="hextech-sub-title">Ficha del Campeón</h3>
             <div class="gold-separator"></div>
-            <p class="lore-text">{{ character.descripcion }}</p>
+            <p class="lore-text">
+                <strong>ID de Campeón:</strong> #{{ character.championId }}
+            </p>
+            <p class="lore-text">
+                Este campeón se encuentra completamente registrado en la base de datos Hextech de la plataforma. Puedes
+                ver sus roles asignados en el panel lateral.
+            </p>
         </section>
 
-        <aside class="stats-section hextech-panel" *ngIf="character.estadisticas">
-            <h3 class="hextech-sub-title">Estadísticas Base</h3>
+        <aside class="stats-section hextech-panel">
+            <h3 class="hextech-sub-title">Roles Asignados</h3>
             <div class="gold-separator"></div>
-            
+
             <div class="stats-container">
-                <div class="stat-row" *ngFor="let stat of character.estadisticas">
-                    <span class="stat-label">{{ stat.name }}</span>
-                    <div class="stat-bar-wrapper">
-                        <div class="stat-bar-fill" [style.width.%]="stat.value * 10">
-                            <div class="stat-bar-glow"></div>
-                        </div>
-                    </div>
+                <div class="stat-row" *ngFor="let role of character.roles">
+                    <span class="stat-label"
+                        style="font-size: 1.1rem; color: #0AC8B9; display: flex; align-items: center; gap: 0.5rem;">
+                        ⚔️ {{ role }}
+                    </span>
                 </div>
             </div>
         </aside>
