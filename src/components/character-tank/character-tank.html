@@ -1,0 +1,33 @@
+<section class="tank-wrapper">
+
+  <h2 class="tank-title">Campeones con rol Tanque</h2>
+
+  <div class="tank-list">
+    <article
+      class="tank-card"
+      *ngFor="let character of characters">
+
+      <img
+        class="tank-thumbnail"
+        [src]="character.thumbnailUrl"
+        [alt]="character.name" />
+
+      <div class="tank-info">
+        <h3 class="tank-name">
+          <a [routerLink]="['/character', character.id]">
+            {{ character.name }}
+          </a>
+        </h3>
+        <p class="tank-title-text">{{ character.title }}</p>
+        <p class="tank-roles">
+          Roles:
+          <span *ngFor="let role of character.roles; let last = last">
+            {{ role }}<span *ngIf="!last">, </span>
+          </span>
+        </p>
+      </div>
+
+    </article>
+  </div>
+
+</section>

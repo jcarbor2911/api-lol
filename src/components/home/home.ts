@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Recomendado si usas directivas
-import { RouterModule } from '@angular/router'; // Para navegaciones futuras
+import { CommonModule } from '@angular/common';
+import { RouterModule, ActivatedRoute, Router } from '@angular/router';
 import { CharacterService } from '../../services/character-service';
 import { Character } from '../../model/character';
 
@@ -16,13 +16,27 @@ export class Home implements OnInit {
   public characters: Character[] = [];
 
   constructor(
-    private _characterService: CharacterService
+    private _characterService: CharacterService,
+    private _route: ActivatedRoute,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
-    this._characterService.getCharacters().subscribe(result => {
-      this.characters = result;
-    });
+
+    // Comprobamos la URL actual para saber si estamos en / o en /role/tank
+    const url = this._router.url;
+
+    if (url === '/role/tank') {
+      // Si la ruta es /role/tank → mostrar solo tanques
+      this._characterService.getTankCharacters().subscribe(result => {
+        this.characters = result;
+      });
+    } else {
+      // Ruta normal (/) → mostrar todos los personajes
+      this._characterService.getCharacters().subscribe(result => {
+        this.characters = result;
+      });
+    }
 
     console.log(this.characters);
   }
